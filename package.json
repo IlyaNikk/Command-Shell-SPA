@@ -1,0 +1,30 @@
+{
+  "name": "Command-Shell-SPA",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IlyaNikk/Command-Shell-SPA.git"
+  },
+  "engines": {
+    "node": "7.5.0"
+  },
+  "keywords": [],
+  "author": "",
+  "dependencies": {
+    "express": "^4.14.*",
+    "node-cmd": "^2.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.7",
+    "babel-preset-env": "^1.2.2",
+    "clean-webpack-plugin": "^0.1.15",
+    "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "0.25.0",
+    "html-webpack-plugin": "^2.28.0",
+    "webpack": "^2.2.1"
+  }
+}

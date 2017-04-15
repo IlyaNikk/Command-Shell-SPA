@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Command Shell SPA</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<main class="main-content">
+		<!--<section class="command-input-section">-->
+			<!--<h1 class="command-input-title">Shell command form</h1>-->
+			<!--<form class="command-input-form">-->
+				<!--<span>-->
+					<!--<label for="command" class="command-input-form__label">Enter shell command:</label>-->
+					<!--<input id="command" name="command" type="text" placeholder="ls" class="command-input-form__input">-->
+				<!--</span>-->
+				<!--<span>-->
+					<!--<label for="comment" class="command-input-form__label">Enter a comment for command:</label>-->
+					<!--<input id="comment" name="command" type="text" placeholder="List directory contents" class="command-input-form__input">-->
+				<!--</span>-->
+				<!--<button class="command-input-form__button">Perform</button>-->
+			<!--</form>-->
+		<!--</section>-->
+		<section class="result-form-section">
+			<h1>Perform Results</h1>
+			<div class="result-form-table">
+				<div class="result-form-table__header">
+					<span class="result-form-table__command-column-header">Command</span>
+					<span class="result-form-table__comment-column-header">Comment</span>
+					<span class="result-form-table__status-column-header">Status</span>
+					<span class="result-form-table__result-column-header">Result</span>
+					<span class="result-form-table__ltime-column-header">Launch time</span>
+					<span class="result-form-table__ftime-column-header">Finish time</span>
+				</div>
+				<div class="result-form-table__content">
+					<span class="result-form-table__command-column-content">ls</span>
+					<span class="result-form-table__comment-column-content">List directory contents</span>
+					<span class="result-form-table__status-column-content result-form-table__status-column-content__wait">In Progress</span>
+					<span class="result-form-table__result-column-content">Result</span>
+					<span class="result-form-table__ltime-column-content">Launch time</span>
+					<span class="result-form-table__ftime-column-content">Finish time</span>
+				</div>
+				<div class="result-form-table__content">
+					<span class="result-form-table__command-column-content">ls</span>
+					<span class="result-form-table__comment-column-content">List directory contents</span>
+					<span class="result-form-table__status-column-content result-form-table__status-column-content__ok">Completed</span>
+					<span class="result-form-table__result-column-content">Result</span>
+					<span class="result-form-table__ltime-column-content">Launch time</span>
+					<span class="result-form-table__ftime-column-content">Finish time</span>
+				</div>
+				<div class="result-form-table__content">
+					<span class="result-form-table__command-column-content">sdjvbjksadfkcjavxcjkhavdchjvadsjcvahsdcvhsadvc</span>
+					<span class="result-form-table__comment-column-content">List directory contents</span>
+					<span class="result-form-table__status-column-content result-form-table__status-column-content__fail">Failed</span>
+					<span class="result-form-table__result-column-content">Result</span>
+					<span class="result-form-table__ltime-column-content">Launch time</span>
+					<span class="result-form-table__ftime-column-content">Finish time</span>
+				</div>
+				<div class="result-form-table__content">
+					<span class="result-form-table__command-column-content">ls</span>
+					<span class="result-form-table__comment-column-content">List directory contents</span>
+					<span class="result-form-table__status-column-content result-form-table__status-column-content__ok">Completed</span>
+					<span class="result-form-table__result-column-content">Result</span>
+					<span class="result-form-table__ltime-column-content">Launch time</span>
+					<span class="result-form-table__ftime-column-content">Finish time</span>
+				</div>
+			</div>
+			<form class="result-form-buttons">
+				<button class="result-form-buttons__enter">Enter shell command</button>
+				<button class="result-form-buttons__refresh">Refresh</button>
+			</form>
+		</section>
+	</main>
+</body>
+</html>
