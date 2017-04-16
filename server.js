@@ -28,7 +28,7 @@ app.post('/perform', function (req, res) {
 		function(data, err, stderr){
 			time = new Date();
 			database[i].ftime = '' + time.getDate() + '.' + time.getMonth() + '.' + time.getFullYear() + ' ' + time.getHours() +
-			':' + time.getMinutes() + ':' + time.getSeconds()
+			':' + time.getMinutes() + ':' + time.getSeconds();
 			if(stderr) {
 				database[i].status = 'Failed';
 				database[i].result = stderr;
@@ -40,6 +40,7 @@ app.post('/perform', function (req, res) {
 			}
 		}
 	);
+	console.log(database[i]);
 });
 
 app.get('/result', function(req,res){

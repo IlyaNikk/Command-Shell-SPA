@@ -1,6 +1,7 @@
 'use strict';
 
 import Block from '../block/block';
+import CommandModel from '../../models/commandModel';
 import './commandInput.css';
 
 export default class CommandInput extends Block {
@@ -66,5 +67,15 @@ export default class CommandInput extends Block {
 
 	setListeners(callback){
 		this.back.get().addEventListener('click', callback, false);
+		this.button.get().addEventListener('click', event => {
+			event.preventDefault();
+			let inputs = document.body.getElementsByClassName('command-input-form__input');
+			let command = inputs[0].value;
+			let comment = inputs[1].value;
+			new CommandModel().sendCommand(command, comment)
+				.then( res => {
+				console.log(res);
+			});
+		}, false);
 	}
 }

@@ -17,6 +17,7 @@ export default class ResultView{
 	}
 
 	show(){
+		this.table.startRefresh();
 		document.body.getElementsByClassName('main-content')[0].appendChild(this.table.get());
 	}
 

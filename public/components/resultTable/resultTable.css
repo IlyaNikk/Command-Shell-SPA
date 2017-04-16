@@ -1,5 +1,7 @@
 .result-form-section{
-	height: 30em;
+	height: auto;
+	padding-top: 2%;
+	padding-bottom: 2%;
 	width: 70em;
 	border: .5em solid dimgray;
 	display: flex;

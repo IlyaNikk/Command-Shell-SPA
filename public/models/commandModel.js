@@ -6,9 +6,13 @@ export default class CommandModel {
 		this.host = 'http://localhost:3000';
 	}
 
-	sendCommand() {
+	sendCommand(command, comment) {
 		return fetch(this.host + '/perform', {
 			method: 'POST',
+			body: JSON.stringify({
+				command: command,
+				comment: comment
+			}),
 			headers: {
 				'Accept': 'application/json',
 				'Content-Type': 'application/json'
@@ -17,7 +21,7 @@ export default class CommandModel {
 			if (res.status >= 300) {
 				throw new Error()
 			}
-			return Promise.resolve();
+			return res.json();
 		}).catch(err => {
 			return Promise.reject();
 		});
