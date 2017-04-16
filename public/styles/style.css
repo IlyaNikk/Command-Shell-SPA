@@ -1,0 +1,10 @@
+* {
+	font-family: 'Oswald', sans-serif;
+}
+
+.main-content{
+	height: 100vh;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}

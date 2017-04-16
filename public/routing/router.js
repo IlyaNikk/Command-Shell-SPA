@@ -2,7 +2,6 @@
 
 import Route from './route';
 
-/** Класс роутера */
 export default class Router {
 	/**
 	 * Создаёт новый роутер или возвращает уже созданный инстанс
@@ -39,7 +38,7 @@ export default class Router {
 	 * Запускает роутер и переходит по текущему пути в приложении
 	 * @param {Object} [state={}] - Объект state, который передаётся в первый вызов onroute
 	 */
-	start(state = {}, options) {
+	start(state = {}) {
 		window.onpopstate = (event) => {
 			const status = event.state;
 			const pathname = window.location.pathname;
@@ -50,7 +49,6 @@ export default class Router {
 		const pathname = window.location.pathname;
 		this.pathsHistory.push(pathname);
 		this.onroute(pathname, state);
-
 	}
 
 	/**

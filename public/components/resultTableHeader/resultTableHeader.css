@@ -1,0 +1,48 @@
+.result-form-table__header{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.result-form-table__command-column-header{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	border: .15em solid dimgray;
+}
+
+.result-form-table__comment-column-header{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	border: .15em solid dimgray;
+}
+
+.result-form-table__status-column-header{
+	width: 73%;
+	display: flex;
+	justify-content: center;
+	border: .15em solid dimgray;
+}
+
+.result-form-table__result-column-header{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	border: .15em solid dimgray;
+}
+
+.result-form-table__ltime-column-header{
+	width: 73%;
+	display: flex;
+	justify-content: center;
+	border: .15em solid dimgray;
+}
+
+.result-form-table__ftime-column-header{
+	width: 73%;
+	display: flex;
+	justify-content: center;
+	border: .15em solid dimgray;
+}

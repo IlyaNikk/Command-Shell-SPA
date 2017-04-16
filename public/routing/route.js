@@ -4,7 +4,6 @@ import pathToRegex from './pathToRegex';
 
 let id = 0;
 
-/** Класс представляет собой Путь в вашем приложении */
 export default class Route {
 	/**
 	 * Создаёт новый Route - ассоциирует некоторую view с шаблоном пути
@@ -12,8 +11,7 @@ export default class Route {
 	 * @param {View} view - Класс конкретной View
 	 * @param {Object} [options={}] - Дополнительные параметры, которые будут переданы во view при её создании и инициализации
 	 */
-	constructor(pathname, view, options = {}) {
-		// TODO: Сущий адище, нам нужно менеджерить депсы
+	constructor(pathname, view, options = {}){
 
 		this.id = 'p' + id;
 		id++;
@@ -41,12 +39,11 @@ export default class Route {
 		state = state || {};
 		const keys = this.regex(pathname);
 		if (!this._view) {
-			const view = new this.View('', this.options);
+			const view = new this.View();
 			view.setRouter(this.__router);
-			view.init();
 			this._view = view;
 		}
-		this._view.resume(Object.assign(state, keys));
+		this._view.show();
 	}
 
 	/**

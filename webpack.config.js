@@ -10,7 +10,7 @@ module.exports = {
 		'./public/main.js'
 	],
 	output: {
-		path: './dist',
+		path: path.resolve(__dirname, 'dist'),
 		filename: path.join('assets', 'js', 'bundle.js'),
 		publicPath: '/'
 	},
@@ -25,8 +25,8 @@ module.exports = {
 				}
 			},
 			{
-				test: /\.test.css$/,
-				loader: 'css-loader'
+				test: /\.css$/,
+				loader: 'style-loader!css-loader'
 			},
 		]
 	},
