@@ -49,8 +49,8 @@ export default class CommandInput extends Block {
 		form.get().appendChild(span.get());
 	}
 
-	addButtons(form){
-		let div = new Block('div',{});
+	addButtons(form) {
+		let div = new Block('div', {});
 		div.get().classList.add('command-input-form__button-block');
 		this.button = new Block('button', {
 			type: 'submit'
@@ -65,17 +65,25 @@ export default class CommandInput extends Block {
 		form.get().appendChild(div.get());
 	}
 
-	setListeners(callback){
+	setListeners(callback) {
 		this.back.get().addEventListener('click', callback, false);
-		this.button.get().addEventListener('click', event => {
-			event.preventDefault();
-			let inputs = document.body.getElementsByClassName('command-input-form__input');
-			let command = inputs[0].value;
-			let comment = inputs[1].value;
-			new CommandModel().sendCommand(command, comment)
-				.then( res => {
+		this.button.get().addEventListener('click', this.buttonListenerFunction, false);
+	}
+
+	buttonListenerFunction(event) {
+		event.preventDefault();
+		let inputs = document.body.getElementsByClassName('command-input-form__input');
+		let command = inputs[0].value;
+		let comment = inputs[1].value;
+		new CommandModel().sendCommand(command, comment)
+			.then(res => {
 				console.log(res);
 			});
-		}, false);
+
+	}
+
+	removeListeners(callback) {
+		this.back.get().removeEventListener('click', callback, false);
+		this.button.get().removeEventListener('click', this.buttonListenerFunction, false);
 	}
 }

@@ -3,7 +3,7 @@
 }
 
 .main-content{
-	height: 90vh;
+	height: auto;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;

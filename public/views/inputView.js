@@ -22,6 +22,7 @@ export default class InputView{
 	}
 
 	pause(){
+		this.view.removeListeners(this.leaveInput.bind(this));
 		document.body.getElementsByClassName('main-content')[0].removeChild(this.view.get());
 	}
 
