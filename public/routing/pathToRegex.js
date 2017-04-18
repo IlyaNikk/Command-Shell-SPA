@@ -4,7 +4,9 @@ export default function pathToRegex(pathname) {
 	const keyNames = [];
 	const parts = pathname
 		.split('/')
-		.filter(part => part)
+		.filter(part => {
+			return part;
+		})
 		.map(part => {
 			if (/^:/.exec(part)) {
 				keyNames.push(part.slice(1));

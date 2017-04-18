@@ -11,7 +11,7 @@ export default class Route {
 	 * @param {View} view - Класс конкретной View
 	 * @param {Object} [options={}] - Дополнительные параметры, которые будут переданы во view при её создании и инициализации
 	 */
-	constructor(pathname, view, options = {}){
+	constructor(pathname, view, options = {}) {
 
 		this.id = 'p' + id;
 		id++;

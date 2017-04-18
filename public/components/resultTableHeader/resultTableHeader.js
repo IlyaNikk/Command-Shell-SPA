@@ -1,13 +1,13 @@
 'use strict';
 
 import Block from '../block/block';
-import './resultTableHeader.css';
+import './resultTableHeader.scss';
 
-export default class ResultTableHeader extends Block{
-	constructor(){
+export default class ResultTableHeader extends Block {
+	constructor() {
 		super('div', {});
 		this.get().classList.add('result-form-table__header');
-		let allColumns = {
+		const allColumns = {
 			command: 'Command',
 			comment: 'Comment',
 			status: 'Status',
@@ -15,17 +15,17 @@ export default class ResultTableHeader extends Block{
 			ltime: 'Ltime',
 			ftime: 'Ftime'
 		};
-		for(let column in allColumns){
+		for (const column in allColumns) {
 			this.createColumnHeader(allColumns[column]);
 		}
 	}
 
-	createColumnHeader(column){
-		let span = new Block('span', {});
+	createColumnHeader(column) {
+		const span = new Block('span', {});
 		span.get().classList.add('result-form-table__' + column.toLowerCase() + '-column-header');
-		if(column === 'Ltime'){
+		if (column === 'Ltime') {
 			column = 'Launch Time';
-		} else if (column === 'Ftime'){
+		} else if (column === 'Ftime') {
 			column = 'Finish Time';
 		}
 		span.get().innerHTML = column;

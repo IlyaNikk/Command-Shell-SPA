@@ -3,12 +3,12 @@
 
 import CommandInput from '../components/commandInput/commandInput';
 
-export default class InputView{
-	constructor(){
+export default class InputView {
+	constructor() {
 		this.view = new CommandInput();
 	}
 
-	get(){
+	get() {
 		return this.view.get();
 	}
 
@@ -17,16 +17,17 @@ export default class InputView{
 		this.view.setListeners(this.leaveInput.bind(this));
 	}
 
-	show(){
+	show() {
 		document.body.getElementsByClassName('main-content')[0].appendChild(this.view.get());
+		this.view.removeMessage();
 	}
 
-	pause(){
+	pause() {
 		this.view.removeListeners(this.leaveInput.bind(this));
 		document.body.getElementsByClassName('main-content')[0].removeChild(this.view.get());
 	}
 
-	leaveInput(){
+	leaveInput() {
 		this.router.go('/');
 	}
 

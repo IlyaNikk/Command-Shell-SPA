@@ -94,3 +94,14 @@ span{
 	box-shadow: .3em .3em .3em dimgray;
 }
 
+.command-input-form__ok-message{
+	display: flex;
+	width: 100%;
+	justify-content: center;
+}
+
+.command-input-form__error-message{
+	display: flex;
+	width: 100%;
+	justify-content: center;
+}

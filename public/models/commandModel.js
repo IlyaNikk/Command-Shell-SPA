@@ -10,16 +10,16 @@ export default class CommandModel {
 		return fetch(this.host + '/perform', {
 			method: 'POST',
 			body: JSON.stringify({
-				command: command,
-				comment: comment
+				command,
+				comment
 			}),
 			headers: {
-				'Accept': 'application/json',
+				Accept: 'application/json',
 				'Content-Type': 'application/json'
 			}
 		}).then(res => {
 			if (res.status >= 300) {
-				throw new Error()
+				throw new Error();
 			}
 			return res.json();
 		}).catch(err => {
@@ -32,7 +32,7 @@ export default class CommandModel {
 			method: 'GET'
 		}).then(res => {
 			if (res.status >= 300) {
-				throw new Error()
+				throw new Error();
 			}
 			return res.json();
 		}).catch(err => {

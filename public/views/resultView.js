@@ -2,12 +2,12 @@
 
 import ResultTable from '../components/resultTable/resultTable';
 
-export default class ResultView{
-	constructor(){
+export default class ResultView {
+	constructor() {
 		this.table = new ResultTable();
 	}
 
-	get(){
+	get() {
 		return this.table.get();
 	}
 
@@ -16,17 +16,17 @@ export default class ResultView{
 		this.table.setListeners(this.leaveResult.bind(this));
 	}
 
-	show(){
+	show() {
 		this.table.startRefresh();
 		document.body.getElementsByClassName('main-content')[0].appendChild(this.table.get());
 	}
 
-	pause(){
+	pause() {
 		document.body.getElementsByClassName('main-content')[0].removeChild(this.table.get());
 	}
 
-	leaveResult(){
+	leaveResult() {
 		this.router.go('/enter');
-}
+	}
 
 }

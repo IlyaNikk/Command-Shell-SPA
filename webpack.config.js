@@ -6,7 +6,7 @@ const HtmlPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-	entry:[
+	entry: [
 		'./public/main.js'
 	],
 	output: {
@@ -15,18 +15,18 @@ module.exports = {
 		publicPath: '/'
 	},
 	module: {
-		loaders:[
+		loaders: [
 			{
 				test: /\.js$/,
 				exclude: /(node_modules)/,
 				loader: 'babel-loader',
 				query: {
-					presets:['env']
+					presets: ['env']
 				}
 			},
 			{
-				test: /\.css$/,
-				loader: 'style-loader!css-loader'
+				test: /\.(s)?css$/,
+				loader: 'style-loader!css-loader!sass-loader'
 			},
 		]
 	},
@@ -36,7 +36,7 @@ module.exports = {
 	plugins: [
 		new CleanWebpackPlugin('dist'),
 		new webpack.LoaderOptionsPlugin({
-			debug : true
+			debug: true
 		}),
 		new webpack.NoEmitOnErrorsPlugin(),
 		new HtmlPlugin({
