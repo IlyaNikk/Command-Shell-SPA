@@ -6,6 +6,12 @@ export default class CommandModel {
 		this.host = 'http://localhost:3000';
 	}
 
+	/**
+	 * Отправляет выполняеиую команду на сервер
+	 * @param {string} command - команда
+	 * @param {string} comment - комментарий к команде
+	 * @returns {Promise.<TResult>} - Промис выполения запроса
+	 */
 	sendCommand(command, comment) {
 		return fetch(this.host + '/perform', {
 			method: 'POST',
@@ -23,10 +29,14 @@ export default class CommandModel {
 			}
 			return res.json();
 		}).catch(err => {
-			return Promise.reject();
+			throw err;
 		});
 	}
 
+	/**
+	 * Запршивает все команды из хранилища
+	 * @returns {Promise.<TResult>} - Промис с ответом серевера
+	 */
 	getCommands() {
 		return fetch(this.host + '/result', {
 			method: 'GET'
@@ -36,7 +46,7 @@ export default class CommandModel {
 			}
 			return res.json();
 		}).catch(err => {
-			return Promise.reject();
+			throw err;
 		});
 	}
 }

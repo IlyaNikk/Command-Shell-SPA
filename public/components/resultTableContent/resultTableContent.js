@@ -9,6 +9,11 @@ export default class ResultTableContent extends Block {
 		this.get().classList.add('result-form-table__content');
 	}
 
+	/**
+	 * Заполнение строки таблицы данными
+	 * @param {array} allColumns - названия столцов в таблице
+	 * @param {object} columnData - Объект с информацией о команде
+	 */
 	fillLine(allColumns, columnData) {
 		Object.keys(allColumns).forEach((columnName) => {
 			const span = new Block('span', {});
@@ -35,13 +40,20 @@ export default class ResultTableContent extends Block {
 		});
 	}
 
+	/**
+	 * Проверка состояния запроса
+	 * @param {object} columns - Информация о команде
+	 * @returns {boolean} - статутс в ожидании или нет
+	 */
 	checkProgress(columns) {
-		if (columns.status === 'In progress') {
-			return true;
-		}
-		return false;
+		return columns.status === 'In progres';
 	}
 
+	/**
+	 * Изменение статуса выполнения команды
+	 * @param {object} column - Информация о команде
+	 * @param {number} number - номер строки, в которой будут меняться данные
+	 */
 	changeStatus(column, number) {
 		const status = document.body.getElementsByClassName('result-form-table__status-column-content')[number];
 		status.classList.remove('result-form-table__status-column-content__wait');

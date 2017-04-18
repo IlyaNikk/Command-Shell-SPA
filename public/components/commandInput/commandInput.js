@@ -28,8 +28,15 @@ export default class CommandInput extends Block {
 		this.get().appendChild(this.form.get());
 	}
 
+	/**
+	 * Добавление полей ввода в форму
+	 * @param {string} text - Текст-поясненние для поля ввода
+	 * @param {string} id - Айдишник поля ввода
+	 * @param {string} placeholder - Текст пояснение для поля ввода
+	 */
 	addInput({text, id, placeholder}) {
 		const span = new Block('span');
+		span.get().classList.add('command-input-form__row');
 		const label = new Block('label', {
 			for: id
 		});
@@ -47,6 +54,9 @@ export default class CommandInput extends Block {
 		this.form.get().appendChild(span.get());
 	}
 
+	/**
+	 * Добавление кнопок в форму
+	 */
 	addButtons() {
 		const div = new Block('div', {});
 		div.get().classList.add('command-input-form__button-block');
@@ -63,11 +73,19 @@ export default class CommandInput extends Block {
 		this.form.get().appendChild(div.get());
 	}
 
+	/**
+	 * Вешаем обработчики событий кнопок
+	 * @param callback - функция для вызова при нажатии кнопки назад
+	 */
 	setListeners(callback) {
 		this.back.get().addEventListener('click', callback, false);
 		this.button.get().addEventListener('click', this.buttonListenerFunction.bind(this), false);
 	}
 
+	/**
+	 * Функция-обработчик нажатия кнопки отправки
+	 * @param event - событие нажатия
+	 */
 	buttonListenerFunction(event) {
 		event.preventDefault();
 		const inputs = document.body.getElementsByClassName('command-input-form__input');
@@ -82,11 +100,20 @@ export default class CommandInput extends Block {
 			});
 	}
 
+	/**
+	 * Удаление событий с кнопок
+	 * @param callback - функция-обработчик на кнопку назад
+	 */
 	removeListeners(callback) {
 		this.back.get().removeEventListener('click', callback, false);
 		this.button.get().removeEventListener('click', this.buttonListenerFunction, false);
 	}
 
+	/**
+	 * Отображения результат выполнения запроса на выполнение команды на сервере
+	 * @param {string} message - Сообщение
+	 * @param {string} messageClass - Класс сообщения
+	 */
 	resultCallback(message, messageClass) {
 		const span = new Block('span', {});
 		span.get().classList.add(messageClass);
@@ -103,11 +130,16 @@ export default class CommandInput extends Block {
 		}
 	}
 
+	/**
+	 * Удаления сообщения о результате выполнения
+	 */
 	removeMessage() {
 		if (document.body.getElementsByClassName('command-input-form__ok-message')[0]) {
-			this.form.get().removeChild(document.body.getElementsByClassName('command-input-form__ok-message')[0]);
+			this.form.get()
+				.removeChild(document.body.getElementsByClassName('command-input-form__ok-message')[0]);
 		} else if (document.body.getElementsByClassName('command-input-form__error-message')[0]) {
-			this.form.get().removeChild(document.body.getElementsByClassName('command-input-form__error-message')[0]);
+			this.form.get()
+				.removeChild(document.body.getElementsByClassName('command-input-form__error-message')[0]);
 		}
 	}
 }

@@ -9,7 +9,6 @@ import './resultTable.scss';
 export default class ResultTable extends Block {
 	constructor() {
 		super('section', {});
-
 		this.allColumns = {
 			command: 'Command',
 			comment: 'Comment',
@@ -30,11 +29,14 @@ export default class ResultTable extends Block {
 		this.get().appendChild(header.get());
 		this.table.get().appendChild(tableHeader.get());
 		this.get().appendChild(this.table.get());
-		this.crateButtonForm();
+		this.createButtonForm();
 		this.getInfo();
 	}
 
-	crateButtonForm() {
+	/**
+	 * Создание кнопок работы с таблицей
+	 */
+	createButtonForm() {
 		const form = new Block('form', {});
 		form.get().classList.add('result-form-buttons');
 		this.enter = new Block('button', {
@@ -46,6 +48,10 @@ export default class ResultTable extends Block {
 		this.get().appendChild(form.get());
 	}
 
+	/**
+	 * Вешаем обработчики на кнопки
+	 * @param callback - функция-обработчик нажатия
+	 */
 	setListeners(callback) {
 		this.enter.get().addEventListener('click', () => {
 			clearInterval(this.interval);
@@ -53,6 +59,9 @@ export default class ResultTable extends Block {
 		}, false);
 	}
 
+	/**
+	 * Обновление информации о состоянии выполнения команд
+	 */
 	getInfo() {
 		new CommandModel().getCommands()
 			.then(res => {
@@ -83,10 +92,17 @@ export default class ResultTable extends Block {
 			});
 	}
 
+	/**
+	 * Запуск таймера обновления информации
+	 */
 	startRefresh() {
 		this.interval = setInterval(this.getInfo.bind(this), 2000);
 	}
 
+	/**
+	 * Измение данных для полей со стутусом In Progress
+	 * @param res - инфрмация о состоянии выполнения команд
+	 */
 	setContent(res) {
 		let count = 0;
 		res.forEach((column, i) => {
@@ -102,6 +118,10 @@ export default class ResultTable extends Block {
 		});
 	}
 
+	/**
+	 * Изменение статуса выполнения команды
+	 * @param res - информация о соотоянии выполнения команд
+	 */
 	changeProgress(res) {
 		this.progress.forEach((number, i, array) => {
 			this.content[number].changeStatus(res[number], number);

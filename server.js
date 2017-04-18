@@ -20,15 +20,13 @@ app.post('/perform', function (req, res) {
 		command: request.command,
 		comment: request.comment,
 		status: 'In progress',
-		ltime: '' + time.getDate() + '.' + time.getMonth() + '.' + time.getFullYear() + ' ' + time.getHours() +
-		':' + time.getMinutes() + ':' + time.getSeconds()
+		ltime: Date().toString()
 	};
 	cmd.get(
 		request.command,
 		function (data, err, stderr) {
 			time = new Date();
-			database[i].ftime = '' + time.getDate() + '.' + time.getMonth() + '.' + time.getFullYear() + ' ' + time.getHours() +
-				':' + time.getMinutes() + ':' + time.getSeconds();
+			database[i].ftime = Date().toString();
 			if (stderr) {
 				database[i].status = 'Failed';
 				database[i].result = stderr;

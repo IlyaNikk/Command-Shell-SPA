@@ -20,6 +20,10 @@ export default class ResultTableHeader extends Block {
 		}
 	}
 
+	/**
+	 * Создание заголовка столбца таблицы
+	 * @param {string} column - название столбца
+	 */
 	createColumnHeader(column) {
 		const span = new Block('span', {});
 		span.get().classList.add('result-form-table__' + column.toLowerCase() + '-column-header');
