@@ -1,10 +1,11 @@
 {
   "name": "Command-Shell-SPA",
   "version": "1.0.0",
-  "description": "",
+  "description": "Web interface to interact between user and command shell",
   "main": "server.js",
   "scripts": {
-    "lint": "eslint './**/*.js'"
+    "lint": "eslint './**/*.js'",
+    "start": "./node_modules/.bin/webpack && node server.js"
   },
   "repository": {
     "type": "git",
@@ -13,8 +14,8 @@
   "engines": {
     "node": "7.5.0"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["Comamnd-Shell", "SPA" ],
+  "author": "Ilya Nikitin",
   "dependencies": {
     "body-parser": "^1.17.1",
     "express": "^4.14.*",
