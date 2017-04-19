@@ -5,6 +5,10 @@ const bodyParser = require('body-parser');
 const cmd = require('node-cmd');
 
 const database = [];
+Date.prototype.toString = function () {
+	return this.getDate() + '.' + this.getMonth() + '.' + this.getFullYear() + ' ' + this.getHours() +
+		':' + this.getMinutes() + ':' + this.getSeconds();
+};
 
 const app = express();
 app.use(bodyParser.json());
@@ -15,18 +19,16 @@ app.use('/enter', express.static('dist'));
 app.post('/perform', function (req, res) {
 	const request = req.body;
 	const i = database.length;
-	let time = new Date();
 	database[i] = {
 		command: request.command,
 		comment: request.comment,
 		status: 'In progress',
-		ltime: Date().toString()
+		ltime: new Date().toString()
 	};
 	cmd.get(
 		request.command,
 		function (data, err, stderr) {
-			time = new Date();
-			database[i].ftime = Date().toString();
+			database[i].ftime = new Date().toString();
 			if (stderr) {
 				database[i].status = 'Failed';
 				database[i].result = stderr;

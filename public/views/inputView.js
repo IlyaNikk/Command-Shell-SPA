@@ -29,8 +29,8 @@ export default class InputView {
 	/**
 	 * Отображение вьюшки
 	 */
-	show(){
-	this.mainContent.appendChild(this.view.get());
+	show() {
+		this.mainContent.appendChild(this.view.get());
 		this.view.removeMessage();
 	}
 

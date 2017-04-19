@@ -46,6 +46,8 @@ module.exports = {
 		"guard-for-in": 0,
 		"import/no-extraneous-dependencies": 0,
 		"default-case":0,
-		"arrow-body-style": ["error", "always"]
+		"arrow-body-style": ["error", "always"],
+		"no-extend-native" : 0
+
 	}
 };

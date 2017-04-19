@@ -28,10 +28,9 @@ export default class CommandModel {
 				throw new Error();
 			}
 			return res.json();
-		}).catch(err => {
-			throw err;
 		});
 	}
+
 
 	/**
 	 * Запршивает все команды из хранилища
@@ -45,8 +44,7 @@ export default class CommandModel {
 				throw new Error();
 			}
 			return res.json();
-		}).catch(err => {
-			throw err;
 		});
 	}
+
 }
