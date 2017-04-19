@@ -1,5 +1,5 @@
 # Command-Shell-SPA
-Web interface to interact between user and command shell
+Web interface to interact between user and command shell.
 To work with this interface perform next steps:
 ```
 $ git clone https://github.com/IlyaNikk/Command-Shell-SPA.git
